@@ -12,6 +12,7 @@ const ballColor = "yellow";
 const ballBorderColor = "black";
 const ballRadius = 12.5;
 const paddleSpeed = 50;
+
 let intervalID;
 let ballSpeed;
 let ballX = gameWidth / 2;
@@ -73,7 +74,7 @@ function drawPaddles(){
 };
 
 function createBall(){
-    ballSpeed = 2;  // 👈 ab thodi fast chalegi
+    ballSpeed = 2;
     if(Math.round(Math.random()) == 1){
         ballXDirection =  1; 
     } else {
@@ -127,14 +128,12 @@ function checkCollision(){
         if(ballY > paddle1.y && ballY < paddle1.y + paddle1.height){
             ballX = (paddle1.x + paddle1.width) + ballRadius; // if ball gets stuck
             ballXDirection *= -1;
-            // ❌ speed increase removed
         }
     }
     if(ballX >= (paddle2.x - ballRadius)){
         if(ballY > paddle2.y && ballY < paddle2.y + paddle2.height){
             ballX = paddle2.x - ballRadius; // if ball gets stuck
             ballXDirection *= -1;
-            // ❌ speed increase removed
         }
     }
 };
